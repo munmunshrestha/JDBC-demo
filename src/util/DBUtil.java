@@ -6,8 +6,8 @@ import java.sql.SQLException;
 
 public class DBUtil {
 	public static final String URL = "jdbc:mysql://localhost:3306/lab1?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
-	public static final String USER_NAME="root";
-	public static final String PASSWORD="root";
+	public static final String USER_NAME="mshresth";
+	public static final String PASSWORD="Chicago12!";
 	public static final String DRIVER_NAME ="com.mysql.cj.jdbc.Driver";
 
 	public static Connection getConnection() throws SQLException{

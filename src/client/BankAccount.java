@@ -19,8 +19,8 @@ public class BankAccount {
 		String mobileNo;
 		String type;
 		double depositAmount = 0;
-		double withdrawAmount = 0;
-		double balance = 0;
+//		double withdrawAmount = 0;
+//		double balance = 0;
 		int newAccountNum = 0;
 
 		String decision = "";
@@ -90,7 +90,6 @@ public class BankAccount {
 
 				}
 				System.out.println();
-
 				System.out.println("Enter the amount you want to deposit");
 				depositAmount = input.nextDouble();
 				accountBalanceDao.depositbalance(depositAmount, newAccountNum);
