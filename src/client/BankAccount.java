@@ -109,7 +109,21 @@ public class BankAccount {
 				break;
 
 			case (3):
-				System.out.println("3");
+				System.out.println("Enter the amount to withdraw: ");
+				
+				withdrawAmount = input.nextDouble();
+				accountBalanceDao.withdrawBalance(withdrawAmount, newAccountNum);
+				AccountBalance accountBalanceInfo1 = accountBalanceDao.getAccountBalance(newAccountNum);
+				
+				System.out.println();
+				System.out.println("------------------------------------------");
+				System.out.println("Transaction Summary");
+				System.out.println("Account Number: " + accountBalanceInfo1.getAccountInfoId());
+				System.out.println("Amount Deposited: " + accountBalanceInfo1.getDepositAmount());
+				System.out.println("Total Balance:" + accountBalanceInfo1.getBalance());
+				System.out.println("------------------------------------------");
+				System.out.println();
+			
 				break;
 
 			}

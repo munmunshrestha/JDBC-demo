@@ -11,6 +11,7 @@ public interface AccountBalanceDao {
 	
 	void createInitialBalance(int accountNum);
 	void depositbalance(double amount, int accountNum);
+	void withdrawBalance(double WithdrawAmount, int accountNum);
 	AccountBalance getAccountBalance(int accountNum);
 
 }

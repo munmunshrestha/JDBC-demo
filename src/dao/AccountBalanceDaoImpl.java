@@ -15,6 +15,7 @@ public class AccountBalanceDaoImpl implements AccountBalanceDao {
 
 	public static final String INSERT_SQL = "Insert into account_balance_tbl(account_info_id) values(?)";
 	public static final String UPDATE_SQL = "update account_balance_tbl set deposit_amount = ?, balance=? where account_info_id=?";
+	public static final String UPDATE_SQL1 = "update account_balance_tbl set withdraw_amount=?, balance=? where account_info_id=?";
 	public static final String SELECTONE_SQL = "select * from account_balance_tbl where account_info_id=?";
 
 	@Override
@@ -47,6 +48,26 @@ public class AccountBalanceDaoImpl implements AccountBalanceDao {
 		}
 
 	}
+	
+	
+	@Override
+	public void withdrawBalance(double WithdrawAmount, int accountNum) {
+		AccountBalance accountBalanceInfo = new AccountBalance();
+		accountBalanceInfo=getAccountBalance(accountNum);
+		
+		try (PreparedStatement ps = DBUtil.getConnection().prepareStatement(UPDATE_SQL1);) {
+			ps.setDouble(1, WithdrawAmount);
+			ps.setDouble(2, accountBalanceInfo.getBalance()-WithdrawAmount);
+			ps.setInt(3, accountNum);
+			ps.executeUpdate();
+
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+		
+	}
 
 	@Override
 	public AccountBalance getAccountBalance(int accountNum) {
@@ -71,5 +92,9 @@ public class AccountBalanceDaoImpl implements AccountBalanceDao {
 		}
 		return accountBalanceInfo;
 	}
+
+	
+
+	
 
 }
